@@ -444,10 +444,12 @@ else:
     ov_rata2 = df_all["metrik2"].mean()
 
 df_non_total = long_df[~long_df["Tahun"].apply(is_total_label)]
-o1, o2, o3 = st.columns(3)
+o1, o2, o3, o4, o5 = st.columns(5)
 o1.metric("Jumlah Wilayah (Total)", f"{ov_jumlah_wilayah}")
 o2.metric(f"Rata-rata {label1} (Total)", f"{ov_rata1:.2f}")
 o3.metric(f"Rata-rata {label2} (Total)", f"{ov_rata2:.2f}")
+o4.metric("Jumlah Tahun Terdata", f"{len(actual_years)}")
+o5.metric("Total Baris Data (semua tahun)", f"{len(df_non_total)}")
 
 st.markdown("---")
 
